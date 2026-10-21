@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: "Retail transaction fact table joined to date, product, customer, and store dimensions."
+    columns:
+      - name: TRANSACTION_ID
+        data_tests:
+          - not_null
+          - unique
+
+      - name: DATE_KEY
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: DATE_KEY
+
+      - name: PRODUCT_KEY
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: PRODUCT_KEY
+
+      - name: CUSTOMER_KEY
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: CUSTOMER_KEY
+
+      - name: STORE_KEY
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_stores')
+                field: STORE_KEY
+
+      - name: ORDER_STATUS
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Completed', 'Returned']

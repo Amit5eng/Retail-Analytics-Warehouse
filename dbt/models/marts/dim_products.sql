@@ -1,0 +1,8 @@
+SELECT
+    HASH(PRODUCT_ID) AS PRODUCT_KEY,
+    PRODUCT_ID,
+    PRODUCT_NAME,
+    CATEGORY,
+    UNIT_COST,
+    UNIT_PRICE
+FROM {{ ref('stg_products') }}

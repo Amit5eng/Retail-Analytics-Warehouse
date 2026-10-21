@@ -1,0 +1,20 @@
+﻿# Environment variables and secrets
+.env
+.env.*
+
+# Python virtual environment and cache
+.venv/
+__pycache__/
+*.py[cod]
+
+# Logs
+logs/
+
+# dbt generated files
+dbt/target/
+dbt/dbt_packages/
+
+# Generated data
+data/raw/
+data/processed/
+data/rejected/

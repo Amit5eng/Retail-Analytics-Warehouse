@@ -1,0 +1,22 @@
+﻿version: 2
+
+sources:
+  - name: retail_staging
+    database: RETAIL_DB
+    schema: STAGING
+    tables:
+      - name: retail_sales
+        identifier: STG_RETAIL_SALES
+        description: "Validated retail sales transactions loaded from PySpark Parquet output."
+
+      - name: products
+        identifier: STG_PRODUCTS
+        description: "Product master data loaded from products.csv."
+
+      - name: customers
+        identifier: STG_CUSTOMERS
+        description: "Customer master data loaded from customers.csv."
+
+      - name: stores
+        identifier: STG_STORES
+        description: "Store master data loaded from stores.csv."

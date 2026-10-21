@@ -1,0 +1,21 @@
+﻿version: 2
+
+models:
+  - name: stg_retail_sales
+    description: "Clean staging view for retail sales transactions."
+    columns:
+      - name: TRANSACTION_ID
+        data_tests:
+          - not_null
+          - unique
+
+      - name: TRANSACTION_DATE
+        data_tests:
+          - not_null
+
+      - name: ORDER_STATUS
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Completed', 'Returned']

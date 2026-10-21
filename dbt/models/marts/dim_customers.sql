@@ -1,0 +1,7 @@
+SELECT
+    HASH(CUSTOMER_ID) AS CUSTOMER_KEY,
+    CUSTOMER_ID,
+    CUSTOMER_NAME,
+    CITY,
+    SIGNUP_DATE
+FROM {{ ref('stg_customers') }}

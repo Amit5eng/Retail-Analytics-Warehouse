@@ -1,0 +1,15 @@
+SELECT
+    TRANSACTION_ID,
+    TRANSACTION_DATE,
+    PRODUCT_ID,
+    CUSTOMER_ID,
+    STORE_ID,
+    QUANTITY,
+    PAYMENT_METHOD,
+    ORDER_STATUS,
+    UNIT_PRICE,
+    UNIT_COST,
+    SALES_AMOUNT,
+    COST_AMOUNT,
+    PROFIT_AMOUNT
+FROM {{ source('retail_staging', 'retail_sales') }}

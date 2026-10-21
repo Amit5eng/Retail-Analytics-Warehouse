@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: "Clean staging view for product master data."
+    columns:
+      - name: PRODUCT_ID
+        data_tests:
+          - not_null
+          - unique
+      - name: PRODUCT_NAME
+        data_tests:
+          - not_null
+      - name: CATEGORY
+        data_tests:
+          - not_null
+
+  - name: stg_customers
+    description: "Clean staging view for customer master data."
+    columns:
+      - name: CUSTOMER_ID
+        data_tests:
+          - not_null
+          - unique
+      - name: CUSTOMER_NAME
+        data_tests:
+          - not_null
+
+  - name: stg_stores
+    description: "Clean staging view for store master data."
+    columns:
+      - name: STORE_ID
+        data_tests:
+          - not_null
+          - unique
+      - name: STORE_NAME
+        data_tests:
+          - not_null

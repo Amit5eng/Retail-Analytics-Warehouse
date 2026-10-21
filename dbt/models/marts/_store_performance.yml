@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: store_performance
+    description: "Store-level retail sales, cost, profit, and transaction performance."
+    columns:
+      - name: STORE_ID
+        data_tests:
+          - not_null
+          - unique
+
+      - name: STORE_NAME
+        data_tests:
+          - not_null
+
+      - name: TRANSACTION_COUNT
+        data_tests:
+          - not_null
+
+      - name: TOTAL_SALES
+        data_tests:
+          - not_null
+
+      - name: TOTAL_PROFIT
+        data_tests:
+          - not_null
