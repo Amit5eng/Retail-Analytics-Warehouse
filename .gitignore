@@ -18,3 +18,5 @@ dbt/dbt_packages/
 data/raw/
 data/processed/
 data/rejected/
+
+src/*.backup
