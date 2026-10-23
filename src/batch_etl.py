@@ -12,9 +12,9 @@ from pyspark.sql.types import (
 )
 
 
-# --------------------------------------------------
+
 # 1. Project paths
-# --------------------------------------------------
+
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -31,9 +31,9 @@ REJECTED_PATH = str(
 )
 
 
-# --------------------------------------------------
+
 # 2. Define the expected input schema
-# --------------------------------------------------
+
 
 SALES_SCHEMA = StructType(
     [
@@ -54,9 +54,9 @@ SALES_SCHEMA = StructType(
 )
 
 
-# --------------------------------------------------
+
 # 3. Start Spark
-# --------------------------------------------------
+
 
 def main():
     spark = (
@@ -71,9 +71,8 @@ def main():
     try:
         print("\nStarting Retail Warehouse batch ETL...")
 
-        # --------------------------------------------------
+       
         # 4. Read monthly sales CSV files
-        # --------------------------------------------------
 
         raw_df = (
             spark.read
@@ -85,9 +84,7 @@ def main():
         input_count = raw_df.count()
         print(f"Input records: {input_count:,}")
 
-        # --------------------------------------------------
         # 5. Convert data types
-        # --------------------------------------------------
 
         df = (
             raw_df
@@ -121,9 +118,7 @@ def main():
             )
         )
 
-        # --------------------------------------------------
         # 6. Define data-quality rules
-        # --------------------------------------------------
 
         required_columns = [
             "transaction_id",
@@ -185,9 +180,7 @@ def main():
             )
         )
 
-        # --------------------------------------------------
         # 7. Separate invalid records
-        # --------------------------------------------------
 
         rejected_df = df.filter(invalid_condition)
 
@@ -201,9 +194,7 @@ def main():
             .parquet(REJECTED_PATH)
         )
 
-        # --------------------------------------------------
         # 8. Keep valid records and remove duplicates
-        # --------------------------------------------------
 
         valid_df = df.filter(~invalid_condition)
 
@@ -214,9 +205,7 @@ def main():
 
         clean_df = valid_df.dropDuplicates(["transaction_id"])
 
-        # --------------------------------------------------
         # 9. Write clean data in Parquet format
-        # --------------------------------------------------
 
         (
             clean_df
@@ -225,9 +214,7 @@ def main():
             .parquet(PROCESSED_PATH)
         )
 
-        # --------------------------------------------------
         # 10. Print the ETL summary
-        # --------------------------------------------------
 
         output_count = clean_df.count()
 

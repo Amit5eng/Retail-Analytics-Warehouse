@@ -20,3 +20,7 @@ data/processed/
 data/rejected/
 
 src/*.backup
+
+# Local dbt configuration
+config/.user.yml
+config/profiles.yml

@@ -17,5 +17,4 @@ models:
         data_tests:
           - not_null
           - accepted_values:
-              arguments:
-                values: ['Completed', 'Returned']
+              values: ['Completed', 'Returned']

@@ -4,9 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-# --------------------------------------------------
 # 1. Project configuration
-# --------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = PROJECT_ROOT / "data" / "raw"
@@ -23,16 +21,12 @@ RANDOM_SEED = 42
 rng = np.random.default_rng(RANDOM_SEED)
 
 
-# --------------------------------------------------
 # 2. Create output directories
-# --------------------------------------------------
 
 SALES_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# --------------------------------------------------
 # 3. Generate product master data
-# --------------------------------------------------
 
 categories = [
     "Electronics",
@@ -75,9 +69,7 @@ products.to_csv(
 )
 
 
-# --------------------------------------------------
 # 4. Generate customer master data
-# --------------------------------------------------
 
 cities = [
     "Mumbai",
@@ -118,9 +110,7 @@ customers.to_csv(
 )
 
 
-# --------------------------------------------------
 # 5. Generate store master data
-# --------------------------------------------------
 
 store_cities = [
     "Mumbai",
@@ -165,9 +155,7 @@ stores.to_csv(
 )
 
 
-# --------------------------------------------------
 # 6. Generate sales transactions
-# --------------------------------------------------
 
 product_ids = products["product_id"].to_numpy()
 customer_ids = customers["customer_id"].to_numpy()
@@ -255,9 +243,7 @@ for month, monthly_sales in sales.groupby("_month"):
     )
 
 
-# --------------------------------------------------
 # 7. Print generation summary
-# --------------------------------------------------
 
 print("\nRetail dataset generated successfully!")
 print(f"Project directory: {PROJECT_ROOT}")

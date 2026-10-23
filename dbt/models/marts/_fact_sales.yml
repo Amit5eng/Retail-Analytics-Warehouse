@@ -1,4 +1,4 @@
-version: 2
+﻿version: 2
 
 models:
   - name: fact_sales
@@ -13,37 +13,32 @@ models:
         data_tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_date')
-                field: DATE_KEY
+              to: ref('dim_date')
+              field: DATE_KEY
 
       - name: PRODUCT_KEY
         data_tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_products')
-                field: PRODUCT_KEY
+              to: ref('dim_products')
+              field: PRODUCT_KEY
 
       - name: CUSTOMER_KEY
         data_tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_customers')
-                field: CUSTOMER_KEY
+              to: ref('dim_customers')
+              field: CUSTOMER_KEY
 
       - name: STORE_KEY
         data_tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_stores')
-                field: STORE_KEY
+              to: ref('dim_stores')
+              field: STORE_KEY
 
       - name: ORDER_STATUS
         data_tests:
           - not_null
           - accepted_values:
-              arguments:
-                values: ['Completed', 'Returned']
+              values: ['Completed', 'Returned']
