@@ -18,7 +18,7 @@ The Retail Analytics Warehouse automates the processing of monthly retail sales 
 
 \*\*Key results\*\*
 
-\- Processed 10,000 retail sales transactions covering January–December 2025.
+\- Processed 10,000 retail sales transactions covering Januaryâ€“December 2025.
 
 \- Loaded sales and master data into Snowflake.
 
@@ -102,27 +102,27 @@ and execution monitoring.
 
 \----------------------
 
-Technology and  Purpose 
+Technology and  Purpose
 
 \--------------------------
 
-&#x20;Python - Data processing and pipeline utilities 
+&#x20;Python - Data processing and pipeline utilities
 
-&#x20;PySpark - Distributed data transformation, validation, and deduplication 
+&#x20;PySpark - Distributed data transformation, validation, and deduplication
 
-&#x20;Apache Airflow - Workflow orchestration, dependencies, retries, and monitoring 
+&#x20;Apache Airflow - Workflow orchestration, dependencies, retries, and monitoring
 
-&#x20;AWS S3 - Cloud storage for raw CSV and processed Parquet data 
+&#x20;AWS S3 - Cloud storage for raw CSV and processed Parquet data
 
-&#x20;Snowflake - Cloud data warehouse and analytical storage 
+&#x20;Snowflake - Cloud data warehouse and analytical storage
 
-&#x20;dbt Core - SQL transformations, dimensional modeling, and data testing 
+&#x20;dbt Core - SQL transformations, dimensional modeling, and data testing
 
-&#x20;SQL - Data validation, transformations, and analytical queries 
+&#x20;SQL - Data validation, transformations, and analytical queries
 
-&#x20;Docker - Containerized Airflow environment 
+&#x20;Docker - Containerized Airflow environment
 
-&#x20;Git \& GitHub - Version control and project documentation 
+&#x20;Git \& GitHub - Version control and project documentation
 
 
 
@@ -154,21 +154,21 @@ The Snowflake ANALYTICS schema contains eight verified analytical tables:
 
 
 
-\- `FACT\_SALES` — retail transaction fact table.
+\- `FACT\_SALES` â€” retail transaction fact table.
 
-\- `DIM\_DATE` — date dimension.
+\- `DIM\_DATE` â€” date dimension.
 
-\- `DIM\_PRODUCTS` — product dimension.
+\- `DIM\_PRODUCTS` â€” product dimension.
 
-\- `DIM\_CUSTOMERS` — customer dimension.
+\- `DIM\_CUSTOMERS` â€” customer dimension.
 
-\- `DIM\_STORES` — store dimension.
+\- `DIM\_STORES` â€” store dimension.
 
-\- `MONTHLY\_SALES\_SUMMARY` — monthly sales analysis.
+\- `MONTHLY\_SALES\_SUMMARY` â€” monthly sales analysis.
 
-\- `PRODUCT\_PERFORMANCE` — product-level performance metrics.
+\- `PRODUCT\_PERFORMANCE` â€” product-level performance metrics.
 
-\- `STORE\_PERFORMANCE` — store-level performance metrics.
+\- `STORE\_PERFORMANCE` â€” store-level performance metrics.
 
 
 
@@ -176,25 +176,25 @@ The dimensional model supports reporting and analysis across time, products, cus
 
 
 
-&#x20;\*\*Validation and Results Metric and Verified result\*\* 
+&#x20;\*\*Validation and Results Metric and Verified result\*\*
 
 \-------------------------------------------------------
 
-&#x20;Source sales period - January–December 2025 
+&#x20;Source sales period - Januaryâ€“December 2025
 
-&#x20;Processed sales transactions - 10,000 
+&#x20;Processed sales transactions - 10,000
 
-&#x20;Unique transaction IDs in `FACT\_SALES` - 10,000 
+&#x20;Unique transaction IDs in `FACT\_SALES` - 10,000
 
-&#x20;Analytics tables - 8 
+&#x20;Analytics tables - 8
 
-&#x20;dbt data tests passed - 33 
+&#x20;dbt data tests passed - 33
 
-&#x20;dbt warnings - 0 
+&#x20;dbt warnings - 0
 
-&#x20;dbt errors - 0 
+&#x20;dbt errors - 0
 
-&#x20;Final Airflow DAG run - Successful 
+&#x20;Final Airflow DAG run - Successful
 
 
 
@@ -210,55 +210,55 @@ The fact-table row count and unique transaction count were verified in Snowflake
 
 Retail\_Analytics\_Warehouse/
 
-├── config/
+â”œâ”€â”€ config/
 
-│   └── profiles.yml
+â”‚   â””â”€â”€ profiles.yml
 
-├── dags/
+â”œâ”€â”€ dags/
 
-│   └── retail\_warehouse.py
+â”‚   â””â”€â”€ retail\_warehouse.py
 
-├── data/
+â”œâ”€â”€ data/
 
-│   ├── raw/
+â”‚   â”œâ”€â”€ raw/
 
-│   ├── processed/
+â”‚   â”œâ”€â”€ processed/
 
-│   └── rejected/
+â”‚   â””â”€â”€ rejected/
 
-├── dbt/
+â”œâ”€â”€ dbt/
 
-│   ├── models/
+â”‚   â”œâ”€â”€ models/
 
-│   │   ├── staging/
+â”‚   â”‚   â”œâ”€â”€ staging/
 
-│   │   ├── intermediate/
+â”‚   â”‚   â”œâ”€â”€ intermediate/
 
-│   │   └── marts/
+â”‚   â”‚   â””â”€â”€ marts/
 
-│   ├── macros/
+â”‚   â”œâ”€â”€ macros/
 
-│   └── dbt\_project.yml
+â”‚   â””â”€â”€ dbt\_project.yml
 
-├── sql/
+â”œâ”€â”€ sql/
 
-├── src/
+â”œâ”€â”€ src/
 
-│   ├── batch\_etl.py
+â”‚   â”œâ”€â”€ batch\_etl.py
 
-│   ├── generate\_retail\_data.py
+â”‚   â”œâ”€â”€ generate\_retail\_data.py
 
-│   ├── load\_master\_data.py
+â”‚   â”œâ”€â”€ load\_master\_data.py
 
-│   ├── s3\_uploader.py
+â”‚   â”œâ”€â”€ s3\_uploader.py
 
-│   └── snowflake\_loader.py
+â”‚   â””â”€â”€ snowflake\_loader.py
 
-├── tests/
+â”œâ”€â”€ tests/
 
-├── .gitignore
+â”œâ”€â”€ .gitignore
 
-└── README.md
+â””â”€â”€ README.md
 
 
 
